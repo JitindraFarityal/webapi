@@ -1,7 +1,8 @@
 var express = require ('express');
 var bodyParser = require ('body-parser');
 var path = require('path');
-require('./node_modules/angular/controller')(App)
+var mongojs = require('mongojs');
+var db = mongojs("mongodb://jitindrafartiyal-webapi-3816549:27017/contactlist", ['contactlist'])
 
 var app = express();
 
@@ -17,32 +18,17 @@ app.use(bodyParser.json());
 
 // define routes
 
-app.get('/contactlist',function(req,res){
-    
-    console.log('Request for Contact List');
-    var person1 = {
-        Name : "Jay Fartiyal",
-        Email : "jayfartiyal@hotmail.com",
-        Phone : "9886762064"
-    };
-    
-    var person2 = {
-        Name : "Preethi K A",
-        Email : "preethiKA@hotmail.com",
-        Phone : "9972232062"
-    };
-    
-    var person3 = {
-        Name : "Utkarsh Roy",
-        Email : "utkarshRoy@hotmail.com",
-        Phone : "9878965002"
-    };
-    
-    var contactList = [person1,person2,person3];
-    
-    res.json(contactList);
-});
+    // instantiate mongoDB database
+    var url="mongodb://jitindrafartiyal-webapi-3816549:27017/contactlist";
 
+app.get('/contactlist', function (req, res) {
+  console.log('I received a GET request');
+
+  db.contactlist.find(function (err, docs) {
+    console.log(docs);
+    res.json(docs);
+  });
+});
 // start the server
 
 var port = process.env.PORT || 8080;

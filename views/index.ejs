@@ -17,6 +17,12 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Number</th>
+                    <tr>
+                        <td><input class="form-control" ng-model="contactName"></td>
+                        <td><input class="form-control" ng-model="contactEmail"></td>
+                        <td><input class="form-control" ng-model="contactPhone"></td>
+                        <td><button class="btn btn-primary">ADD</button></td>
+                    </tr>
                     <tr ng-repeat ="contact in contactList">
                         <td>{{contact.Name}}</td>
                         <td>{{contact.Email}}</td>
@@ -25,9 +31,9 @@
                 </thead>
             </table>
         </div>
-        
+    <script src = "angular/controller.js"></script>    
     <script src = "angular/angular.js"></script>
     <script src = "angular/angular.min.js"></script>
-    <script src = "angular/controller.js"></script>
+    
     </body>
 </html>
