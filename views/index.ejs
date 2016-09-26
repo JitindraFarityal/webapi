@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html ng-app="App">
+    <head>
+        
+        <link rel = "stylesheet" href = "bootstrap/dist/css/bootstrap.min.css">
+        <link rel = "stylesheet" href = "bootstrap/dist/css/bootstrap-theme.min.css">
+         <link rel = "stylesheet" href = "angular/angular-csp.css">
+         
+        <title>Web API</title>
+    </head>
+    <body>
+        
+        <div class="container" ng-controller="AppCtrl">
+            <h1>Contact List App</h1>
+            <table class="table">
+                <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <tr ng-repeat ="contact in contactList">
+                        <td>{{contact.Name}}</td>
+                        <td>{{contact.Email}}</td>
+                        <td>{{contact.Phone}}</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        
+    <script src = "angular/angular.js"></script>
+    <script src = "angular/angular.min.js"></script>
+    <script src = "angular/controller.js"></script>
+    </body>
+</html>
